@@ -1,0 +1,36 @@
+{
+  "env": {
+    "commonjs": true,
+    "es2021": true,
+    "node": true,
+    "browser": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "rules": {
+    "prettier/prettier": [ "error", 
+      {
+      "endOfLine": "auto"
+      }
+    ],
+    "no-plusplus": "off",
+    "no-await-in-loop": "off",
+    "global-require": "off",
+    "import/no-extraneous-dependencies": [ 
+      "error", 
+      {
+        "devDependencies": [
+          "src/config/*" 
+        ]
+      }
+    ]
+  }
+}
