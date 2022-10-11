@@ -1,17 +1,17 @@
 const { replaceAll } = require("./replaceAll");
 
 function queryFormatter(query, provider) {
-  const sevenPattern = {
+  const firstPattern = {
     " ": "%20",
     "'": "",
     "/": "",
   };
-  const limePattern = {
+  const secondPattern = {
     " ": "-",
     "'": "%20",
     "/": "-",
   };
-  const torrentGalaxyPattern = {
+  const thirdPattern = {
     " ": "+",
     "'": "%27",
     "/": "%2F",
@@ -19,15 +19,15 @@ function queryFormatter(query, provider) {
 
   let keys;
   let values;
-  if (provider === "sevenPattern" || provider === "torrentCsvPattern") {
-    keys = Object.keys(sevenPattern);
-    values = Object.values(sevenPattern);
-  } else if (provider === "limePattern") {
-    keys = Object.keys(limePattern);
-    values = Object.values(limePattern);
-  } else if (provider === "torrentGalaxyPattern") {
-    keys = Object.keys(torrentGalaxyPattern);
-    values = Object.values(torrentGalaxyPattern);
+  if (provider === "seven" || provider === "torrentCsv") {
+    keys = Object.keys(firstPattern);
+    values = Object.values(firstPattern);
+  } else if (provider === "limeTorrents") {
+    keys = Object.keys(secondPattern);
+    values = Object.values(secondPattern);
+  } else if (provider === "torrentGalaxy" || provider === "solidTorrents") {
+    keys = Object.keys(thirdPattern);
+    values = Object.values(thirdPattern);
   }
 
   let itNeedsFormatter = false;
